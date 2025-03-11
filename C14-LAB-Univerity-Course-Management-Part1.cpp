@@ -48,83 +48,23 @@ using namespace std;
 //------------------------------------------------------------
 class Student {
     //TODO: Implement as a lazy-class (quick & dirty)
-protected:
-    string  sname;
-public:
-    string getName() { return sname; }
-    Student(string n = "NoName") : sname(n) {}
 
 };
 //------------------------------------------------------------
 class Professor {
     //TODO: lazy class
-protected:
-    string   pname;
-public:
-    string getName() { return pname; }
-    Professor(string p = "NoName") : pname(p) {}
+
 };
 
 //-------------------------------------------------------------
 class Course {
     //TODO: lazy class
 
-protected:
-    string  courseName;
-    Professor* professor;
-    vector<Student*> students;
-public:
-    string getName() { return courseName; }
-
-    //Condensed lazy-constructor
-    Course(string c = "NoName", Professor* p = nullptr, vector<Student*> vs = {})
-        : courseName(c), professor(p), students(vs) {}
-
-    /*
-    | + enrollStudent(Student* s)                       |
-| + listStudents()  
-    */
-
-    void enrollStudent(Student* s) {
-        students.push_back(s);
-    }
-
-    void listStudents() {
-        cout << "Students: \n";
-        for (Student* s : students) {
-            cout << "\t" << s->getName() << endl;
-        }
-    }
-
-
 };
 //----------------------------------------------------
 class Department {
     //TODO: Lazy class
-protected:
-    string             dname;
-    vector<Course>     courses;
-    vector<Professor*> professors;
-public:
-    //condensed lazy-constructor
-    Department(string n = "None", vector<Course> vc = {}, vector<Professor*> vp = {})
-        : dname(n), courses(vc), professors(vp) {}
 
-    //User-Defined methods
-    void addProfessor(Professor* p) {
-        professors.push_back(p);
-    }
-
-    void addCourse(Course c) {
-        courses.push_back(c);
-    }
-
-    void listCourses() {
-        cout << "Courses:\n";
-        for (Course c : courses) {
-            cout << "\t" << c.getName() << endl;
-        }
-    }
 };
 
 // --------------------------------------------------------
@@ -132,7 +72,7 @@ public:
 int main()
 {
     // Create Professors
-    Professor prof1("Dr. Russel");
+    Professor prof1("Dr. Russell");
     Professor prof2("Dr. Ambrosio");
 
     // Create Department
